@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vasculator — Vascular Surgery Risk Toolbox</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="brand">Vasculator</h1>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#calculators">Calculators</a>
+        <a href="#resources">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero container">
+      <div>
+        <h2>Vascular Surgery Risk Assessment Toolbox</h2>
+        <p>Open, simple calculators for estimating perioperative vascular risk — web implementation for clinician use and education.</p>
+      </div>
+      <img alt="Vasculator graphic" src="https://via.placeholder.com/300x160?text=Vasculator" />
+    </section>
+
+    <section id="about" class="container about">
+      <h3>About</h3>
+      <p>This demo reproduces a small static site with interactive calculators. Use it to compute quick risk scores or integrate your own formulas and data.</p>
+    </section>
+
+    <section id="calculators" class="container calculators">
+      <h3>Calculators</h3>
+
+      <div class="calc-grid">
+        <!-- Example: Simple Vascular Risk (%) -->
+        <div class="card">
+          <h4>Example: Simple Vascular Risk</h4>
+          <form id="riskForm">
+            <label>Age
+              <input type="number" id="age" min="18" max="120" value="65" required />
+            </label>
+
+            <label>Creatinine (mg/dL)
+              <input type="number" step="0.1" id="creatinine" value="1.0" required />
+            </label>
+
+            <label>Smoking (pack-years)
+              <input type="number" id="smoking" value="10" />
+            </label>
+
+            <label>Diabetes
+              <select id="diabetes">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </label>
+
+            <div class="form-row">
+              <button type="submit">Calculate</button>
+              <button type="button" id="resetRisk">Reset</button>
+            </div>
+          </form>
+
+          <div class="result" id="riskResult">Enter inputs and click Calculate.</div>
+        </div>
+
+        <!-- Another example: ABI helper -->
+        <div class="card">
+          <h4>Ankle-Brachial Index (ABI) helper</h4>
+          <form id="abiForm">
+            <label>Right ankle systolic (mmHg)
+              <input type="number" id="ankleR" value="120" required />
+            </label>
+            <label>Left ankle systolic (mmHg)
+              <input type="number" id="ankleL" value="118" required />
+            </label>
+            <label>Brachial systolic (mmHg)
+              <input type="number" id="brachial" value="130" required />
+            </label>
+
+            <div class="form-row">
+              <button type="submit">Compute ABI</button>
+              <button type="button" id="resetAbi">Reset</button>
+            </div>
+          </form>
+
+          <div class="result" id="abiResult">ABI results here.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="container resources">
+      <h3>Resources & Notes</h3>
+      <ul>
+        <li>This is a demo. Replace formulas with validated clinical models before using in care.</li>
+        <li>All computations run client-side in JavaScript for immediate feedback.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Vasculator demo — not for clinical use</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
